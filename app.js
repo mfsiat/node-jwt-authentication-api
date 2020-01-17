@@ -9,4 +9,16 @@ app.get("/api", (req, res) => {
   });
 });
 
+// now lets create a route that we want to protect
+app.post("/api/posts", (req, res) => {
+  res.json({
+    message: "Post created..."
+  });
+});
+
+// to implement jwt web token first we need to get the token
+// lets create something for that 
+
+
+
 app.listen(5000, () => console.log("Server started on port 5000"));
