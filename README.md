@@ -11,4 +11,21 @@ authentication to fetch a token and then we can make access to that token to get
 
 - A mock user.
 - An overview of how to protect routes.
-- How to get a token and how to use it to access routes. 
+- How to get a token and how to use it to access routes.
+
+## JWT Notes
+
+- To implement the jwt web token we first need to get the token.
+- We can get the token asychronously or synchronously.
+- Read the documentation.
+- JWT cycle goes like auth>varifies>jwt token
+- Here we are using a mock user to give the payload parameter
+- code goes here
+
+```js
+jwt.sign({ user }, "secretkey", (err, token) => {
+  res.json({
+    token
+  });
+});
+```
