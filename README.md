@@ -29,3 +29,7 @@ jwt.sign({ user }, "secretkey", (err, token) => {
   });
 });
 ```
+
+- To protect the routes that are needed to be protected, we need to create a middleware.
+
+- The middleware goes to the post method.

@@ -10,7 +10,9 @@ app.get("/api", (req, res) => {
 });
 
 // now lets create a route that we want to protect
-app.post("/api/posts", (req, res) => {
+// the route we want to protect 
+// we need to create a middleware function 
+app.post("/api/posts", verifyToken, (req, res) => {
   res.json({
     message: "Post created..."
   });
@@ -39,5 +41,25 @@ app.post("/api/login", (req, res) => {
     })
   });
 });
+
+// Format of token 
+// Authorization: Bearer <access_token> 
+
+
+// Verify Token 
+// middlware function for protecting routes
+function verifyToken(req, res, next) {
+  // Get the auth header value 
+  // so when we sent our token we want to sent it to the header 
+  const bearerHeader = req.headers['authorization'];
+  // Check if bearer is undefined 
+  if(typeof bearerHeader !== 'undefined') {
+
+  } else {
+    // Forbidden
+    res.sendStatus(403);
+  }
+
+}
 
 app.listen(5000, () => console.log("Server started on port 5000"));
