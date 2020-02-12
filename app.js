@@ -13,8 +13,15 @@ app.get("/api", (req, res) => {
 // the route we want to protect 
 // we need to create a middleware function 
 app.post("/api/posts", verifyToken, (req, res) => {
-  res.json({
-    message: "Post created..."
+  jwt.verify(req.token, 'secretkey', (err, authData) => {
+    if(err) {
+      res.sendStatus(403);
+    } else {
+      res.json({
+        message: "Post created...",
+        authData
+      })
+    }
   });
 });
 

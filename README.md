@@ -40,3 +40,11 @@ jwt.sign({ user }, "secretkey", (err, token) => {
 - Bearer <access_token>
 
 - On entering the protected route we need to verify the token 
+
+## To Get Access to Protected routes
+
+  Whenever we login through the api the api will generate a random **jason web token** then we need to pass the token through the header, like we need to pass the token whenever we want to create a **POST** method. We can use postman and under header key as Authorization and value **Bearer <access_token>** and then pass the value the post will be created. 
+
+  Make sure to check the Authorization mark checked otherwise the body wont be able to create any posts. Any type of missmatch to the token the request will give use **Forbidden** signal. 
+
+  We can also create an expication time for the web token. Check the documentation for many other options. 
