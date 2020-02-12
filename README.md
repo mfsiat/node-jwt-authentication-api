@@ -2,6 +2,9 @@
 
 > Authenticate with JWT token
 
+## Documentation 
+![Click Here](https://github.com/auth0/node-jsonwebtoken)
+
 ## Why use JWT web tokens
 
 These tokens are used to protect routes in an API, so that we can add
@@ -33,3 +36,7 @@ jwt.sign({ user }, "secretkey", (err, token) => {
 - To protect the routes that are needed to be protected, we need to create a middleware.
 
 - The middleware goes to the post method.
+
+- Bearer <access_token>
+
+- On entering the protected route we need to verify the token 
